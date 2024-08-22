@@ -9,6 +9,9 @@ package config
 	* @param:
 	* @return:
 **/
+import (
+	"github.com/dgrijalva/jwt-go"
+)
 
 // 定义用户配置结构体
 type UserConfig struct {
@@ -16,6 +19,14 @@ type UserConfig struct {
 	Username string `form:"username" db:"username" json:"username"`
 	Password string `form:"password" db:"password" json:"password"`
 	UserImg  string `form:"user_img" db:"user_img" json:"user_img"`
+}
+
+// 自定义声明，用于扩展jwt.StandardClaims
+type CustomClaims struct {
+    jwt.StandardClaims
+    ID    int  `json:"id"`
+    Username  string `json:"username"`
+    // 你可以添加更多的字段来表示用户的身份信息
 }
 
 

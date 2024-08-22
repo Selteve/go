@@ -9,6 +9,7 @@ import (
 	"golang.org/x/crypto/bcrypt"
 	Config "gitee.com/under-my-umbrella/cloud/config"
 	UserDb "gitee.com/under-my-umbrella/cloud/db/users"
+	Utils "gitee.com/under-my-umbrella/cloud/utils"
 )
 
 
@@ -68,9 +69,20 @@ func UserLogin(c *gin.Context) {
 	if UserDb.CheckUser(user.Username) {
 		// 判断密码是否正确
 		if UserDb.GetUser(user.Username, []byte(user.Password)) {
+			// 查找用户信息
+			id, err := UserDb.GetUserIdByUsername(user.Username)
+			if err != nil {
+				return 
+			}
+			// 生成token
+			token, err := Utils.GenerateToken(id, user.Username)
+			if err != nil {
+				return
+			}
 			c.JSON(200, gin.H{
 				"code": 1,
 				"msg": "登录成功",
+				"token": token,
 			})
 		} else {
 			c.JSON(200, gin.H{
