@@ -3,6 +3,7 @@ import (
 	"net/http"
 	"github.com/gin-gonic/gin"
 	Middleware "gitee.com/under-my-umbrella/cloud/middleware"
+    Constroler "gitee.com/under-my-umbrella/cloud/controller"
 )
 // SetupUploadRoutes setup upload routes
 func SetupUploadRoutes(api *gin.RouterGroup) {
@@ -10,7 +11,7 @@ func SetupUploadRoutes(api *gin.RouterGroup) {
 	upload.Use(Middleware.VrifyToken()) // 验证token
 	upload.GET("", getAllUpload)
 	upload.GET("/:id", getAllUpload)
-	upload.POST("", getAllUpload)
+	upload.POST("", Constroler.UploadFile)
 	upload.PUT("/:id", getAllUpload)
 	upload.DELETE("/:id", getAllUpload)
 }

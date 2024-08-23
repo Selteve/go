@@ -12,6 +12,8 @@ func SetupRouter() *gin.Engine {
 	r := gin.Default()
 	// 设置静态文件路由
 	r.Static("/files/avatar", "./files/avatar")
+	r.Static("/files/images", "./files/images")
+	r.Static("/files/video", "./files/video")
 	// 设置CORS中间件
 	r.Use(cors.New(cors.Config{
 		AllowOrigins: []string{"*"}, // 允许所有来源访问

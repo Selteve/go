@@ -6,7 +6,7 @@ import (
 	Config "gitee.com/under-my-umbrella/cloud/config"
 )
 
-
+// 生成token
 func GenerateToken(ID int, username string) (string, error) {
     // 设置过期时间
     expirationTime := time.Now().Add(1 * time.Hour)
