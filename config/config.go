@@ -29,4 +29,11 @@ type CustomClaims struct {
     // 你可以添加更多的字段来表示用户的身份信息
 }
 
+// 配置文件
+type Config struct {
+	DevMent string `yaml:"devment"`
+	ProMent  string `yaml:"proment"`
+	Port 	 int `yaml:"port"`
+}
+
 
