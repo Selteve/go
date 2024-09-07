@@ -44,3 +44,8 @@ func CreateUsersTable() {
 		fmt.Println("create table success")
 	}
 }
+
+
+// 建立一个files表,
+
+

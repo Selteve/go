@@ -2,14 +2,14 @@ package utils
 
 import (
 	"fmt"
-	"io/ioutil"
+	"os"
 	"gopkg.in/yaml.v2"
 	Config "gitee.com/under-my-umbrella/cloud/config"
 )
 
 // ReadConfig reads the configuration from a YAML file and returns a Config.Config
 func ReadConfig() Config.Config {
-	data, err := ioutil.ReadFile("config/config.yaml")
+	data, err := os.ReadFile("config/config.yaml")
 	if err != nil {
 		fmt.Println("Error reading file:", err)
 		return Config.Config{} // Return an empty Config.Config object on error
