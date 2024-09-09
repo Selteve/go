@@ -47,5 +47,22 @@ func CreateUsersTable() {
 
 
 // 建立一个files表,
+/*
+ * @author: XiongHaiying
+ * @date: 2024/8/16
+ * @time: 2024年08月16日 15:43:37
+ * @desc: 
+	* @param:
+	* @return:
+ * @throws: id int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '文件ID',
+ * @throws: file_name varchar(255) DEFAULT '' COMMENT '文件名称',
+ * @throws: file_path varchar(255) DEFAULT '' COMMENT '文件路径',
+ * @throws: PRIMARY KEY (id)
+ */
+
+
+func CreateFilesTable() {
+
+}
 
 

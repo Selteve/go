@@ -24,3 +24,7 @@ func ReadConfig() Config.Config {
 
 	return config // Return the config object on success
 }
+
+
+
+
